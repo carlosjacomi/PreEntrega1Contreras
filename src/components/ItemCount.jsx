@@ -6,11 +6,8 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton'
 import { useState } from 'react';
 
-const ItemCount = () => {
-const stock = 5;
+const ItemCount = ({stock=0}) => {
 const [value, setValue] = useState(0);
-
-
 const sumValue = () => {setValue(value + 1)}
 const restValue = () => {setValue(value - 1)}
 const onAdd = () => console.log(value);
@@ -19,9 +16,7 @@ return (
     <>
         <Container fluid>
             <Row className='justify-content-md-center'>
-                <Col xs={3} className='text-center mt-5' >
-                    <h3>Producto</h3>
-                    <small>Stock Disponible: {stock}</small>
+                <Col xs={12} className='text-center mt-5' >
                     <ButtonGroup className='w-100'>
                         <ToggleButtonGroup type="input" className="mb-2 w-100">
                             <ToggleButton variant="secondary" onClick={value > 0 ? restValue : undefined}  disabled={stock===0} > - </ToggleButton>
