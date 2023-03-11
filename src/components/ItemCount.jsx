@@ -1,11 +1,8 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { Button, ToggleButtonGroup } from 'react-bootstrap';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton'
 import { useState } from 'react';
-import Cart from '../assets/Cart';
+
+import {Container,Row,Col} from 'react-bootstrap';
+
+import { Button, ButtonGroup,  ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 
 
 const ItemCount = ({stock=0}) => {

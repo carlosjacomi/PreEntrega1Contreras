@@ -1,19 +1,29 @@
 import { useEffect, useState } from "react";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+
+import {Container,Row,Col} from 'react-bootstrap';
+
 import ProductsExample from "../mockups/ProductsExample";
 import ItemList from "./ItemList";
 
-const  ItemListContainer= () => {
+
+
+const  ItemListContainer= ({categoryId='', isHome=true}) => {
     const [products, setProducts]= useState([]);
 
     useEffect(()=>{
         const load = new Promise ((resolve, reject) => setTimeout(() => resolve(ProductsExample), 2000));
+        
         load
-        .then((response) => setProducts(response))
+        .then((response) => {
+            if (isHome) {
+                setProducts(response);
+            }else {
+                const productsByCategory = response().filter((value) => value.category === categoryId)
+                setProducts(productsByCategory);
+            }
+        })
         .catch((err) => console.log(err))
-    },[]);
+    },[categoryId]);
 
 return (
     <>

@@ -1,6 +1,8 @@
+import { NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+
 import CartWidget from './CartWidget';
 
 
@@ -13,7 +15,7 @@ return (
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end fw-bold fs-5">
         <Nav>
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#anillos">Anillos</Nav.Link>
+            <Nav.Link href="#anillos"><NavLink to={'/category/anillos'}>Anillos</NavLink></Nav.Link>
             <Nav.Link href="#collares">Collares</Nav.Link>
             <Nav.Link href="#relojes">Relojes</Nav.Link>
             <Nav.Link href="#especiales">Joyas Especiales</Nav.Link>
