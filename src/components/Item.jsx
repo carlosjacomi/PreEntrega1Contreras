@@ -1,29 +1,31 @@
 import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image'
 import ItemCount from './ItemCount';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 
 const Item = ({id='',urlImage='#', title='', details='', price=0, stock=0}) => {
 return (
     <>
         <Container fluid className='py-3'>
-            <Row className='text-center'>
-                <Col xs={12} id={id}>
-                    <Image src={urlImage} alt='' fluid />
+                <Col>
+                    <Card  border="secondary" bg={'light'} className='text-center'>
+                        <Card.Img variant="top" src={urlImage} alt='' fluid />
+                        <Card.Body className='p-1'>
+                            <Card.Title>{title}</Card.Title>
+                            <Card.Text>
+                                {details}
+                            </Card.Text>
+                            <ListGroup className="list-group-flush">
+                                <ListGroup.Item>{price}</ListGroup.Item>
+                                <ListGroup.Item><ItemCount stock={stock}/></ListGroup.Item>
+                            </ListGroup>
+                        </Card.Body>
+                    </Card>
                 </Col>
-                <Col xs={12}>
-                    <h3>{title}</h3>
-                </Col>
-                <Col xs={12}>
-                    <span> {details} </span>
-                </Col>
-                <Col xs={12} className='text-end'>
-                    <small>{price}</small>
-                </Col>
-                <ItemCount stock={stock}/>
-            </Row>
         </Container>
     </>
 );

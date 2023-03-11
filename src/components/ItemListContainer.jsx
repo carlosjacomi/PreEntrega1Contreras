@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import ProductsExample from "../mockups/ProductsExample";
 import ItemList from "./ItemList";
 
@@ -14,7 +17,14 @@ const  ItemListContainer= () => {
 
 return (
     <>
-        <ItemList products={products}/>
+        <Container>
+            <Row>
+                <Col>
+                    <ItemList products={products}/>
+                </Col>
+            </Row>
+        </Container>
+        
     </>
 );
 }

@@ -5,6 +5,8 @@ import { Button, ToggleButtonGroup } from 'react-bootstrap';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton'
 import { useState } from 'react';
+import Cart from '../assets/Cart';
+
 
 const ItemCount = ({stock=0}) => {
 const [value, setValue] = useState(0);
@@ -16,7 +18,7 @@ return (
     <>
         <Container fluid>
             <Row className='justify-content-md-center'>
-                <Col xs={12} className='text-center mt-5' >
+                <Col xs={12} className='text-center' >
                     <ButtonGroup className='w-100'>
                         <ToggleButtonGroup type="input" className="mb-2 w-100">
                             <ToggleButton variant="secondary" onClick={value > 0 ? restValue : undefined}  disabled={stock===0} > - </ToggleButton>
@@ -25,8 +27,8 @@ return (
                         </ToggleButtonGroup>
                     </ButtonGroup>
                     <div className="d-grid gap-2">
-                        <Button variant="outline-secondary" size="lg" onClick={onAdd} disabled={stock===0}>
-                            Agregar al Carrito
+                        <Button variant="outline-secondary"  onClick={onAdd} disabled={stock===0}>
+                            <small>(+)<Cart/></small>
                         </Button>
                     </div>
                 </Col>

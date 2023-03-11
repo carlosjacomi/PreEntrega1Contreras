@@ -9,9 +9,9 @@ return (
             <Row>
                 <ul className='list-unstyled'>
                     <Container fluid>
-                        <Row>
+                        <Row xs={1} md={2} lg={4} className="g-4">
                             {products.map((product) => (
-                                    <li key={product.id} className='col-4'>
+                                    <li key={product.id}>
                                             <Item id={product.id} urlImage={product.image} title={product.title} details={product.details} price={product.price} stock={product.stock}/>
                                     </li>
                             ))}
