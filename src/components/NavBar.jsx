@@ -8,7 +8,7 @@ const NavBar = () => {
 return (
     <Navbar bg="light">
     <Container fluid>
-        <Navbar.Brand href="#home" className='fs-4'>Aurus Joyeria</Navbar.Brand>
+        <Navbar.Brand href="#home" className='fs-4 text-warning fw-bold'>Aurus Joyeria</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end fw-bold fs-5">
         <Nav>

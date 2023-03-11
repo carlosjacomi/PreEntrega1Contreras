@@ -15,7 +15,7 @@ return (
                     <Card  border="secondary" bg={'light'} className='text-center'>
                         <Card.Img variant="top" src={urlImage} alt='' fluid />
                         <Card.Body className='p-1'>
-                            <Card.Title>{title}</Card.Title>
+                            <Card.Title className='bg-light'>{title}</Card.Title>
                             <Card.Text>
                                 {details}
                             </Card.Text>
