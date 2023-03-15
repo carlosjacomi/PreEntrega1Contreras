@@ -1,16 +1,14 @@
 import { useParams } from 'react-router-dom';
 
-import NavBar from '../../components/NavBar'
-import ItemListContainer from '../../components/ItemListContainer';
+import NavBar from '../../components/navbar/NavBar'
+import ItemListContainer from '../../containers/itemList/ItemListContainer';
 
-function App() {
+const App = () =>  {
   const params = useParams();
   const isHome = params.id==='' || params.id===undefined? true : false;
   return (
     <>
       <NavBar/>
-      {console.log(params)}
-      {console.log(isHome)}
       <ItemListContainer isHome={isHome} categoryId={params.id}/>
     </>
   )

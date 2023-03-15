@@ -1,11 +1,14 @@
-import NavBar from '../../components/NavBar'
-import ItemDetailContainer from '../../components/ItemDetailContainer';
+import { useParams } from 'react-router-dom';
 
-function ItemPage() {
+import NavBar from '../../components/navbar/NavBar'
+import ItemDetailContainer from '../../containers/ItemDetail/ItemDetailContainer';
+
+const ItemPage = () => {
+  const params = useParams();
   return (
     <>
       <NavBar/>
-      <ItemDetailContainer/>
+      <ItemDetailContainer product={params}/>
     </>
   )
 }

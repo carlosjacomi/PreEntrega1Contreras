@@ -1,1 +1,6 @@
-svg path{fill: #fff !important; stroke: #666;}
+a {text-decoration: none !important;}
+
+.spinner-grow {
+    --bs-spinner-width: 20rem !important;
+    --bs-spinner-height: 20rem !important;
+}

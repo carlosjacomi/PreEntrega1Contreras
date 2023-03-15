@@ -25,7 +25,7 @@ return (
                     </ButtonGroup>
                     <div className="d-grid gap-2">
                         <Button variant="outline-secondary"  onClick={onAdd} disabled={stock===0}>
-                            <big>+</big>
+                            <big>Agregar</big>
                         </Button>
                     </div>
                 </Col>

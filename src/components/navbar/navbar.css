@@ -1,0 +1,10 @@
+#navbar a {
+    text-decoration: none !important;
+    color:#666 !important;
+}
+
+#navbar a:hover {
+    color:#333 !important;
+}
+
+#navbar svg path{fill: #fff !important; stroke: #666;}
