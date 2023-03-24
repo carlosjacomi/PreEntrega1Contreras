@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 
 import NavBar from '../../components/navbar/NavBar'
-import ItemListContainer from '../../containers/itemList/ItemListContainer';
+import ItemListContainer from '../../components/itemList/ItemListContainer';
 
 const App = () =>  {
   const params = useParams();

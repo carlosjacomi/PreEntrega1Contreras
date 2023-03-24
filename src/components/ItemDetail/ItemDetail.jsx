@@ -1,9 +1,12 @@
 
-import {Container,Row,Col, Image} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import ItemCount from '../../components/ItemCount';
+
+import {Container,Row,Col, Image} from 'react-bootstrap';
+
+import ItemCount from '../ItemCount';
 
 const ItemDetail = ({product=undefined}) => {
+
 return (
     <>
         <Container className='mt-1'>

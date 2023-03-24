@@ -4,12 +4,11 @@ import {Container,Row,Col} from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-import ItemCount from '../../components/ItemCount';
-
-
+import ItemCount from '../ItemCount';
 
 const Item = ({id='',urlImage='#', title='', details='', price=0, stock=0}) => {
-return (
+    
+    return (
     <>
         <Container id='item-list'  fluid className='py-3'>
                 <Row>
