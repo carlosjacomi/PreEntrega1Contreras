@@ -6,8 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import ItemPage from './pages/item/ItemPage';
 
-
 import { initializeApp } from "firebase/app";
+import CartProvider from './context/Index';
+import CartPage from './pages/cart/CartPage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDNWJNSSItMm-_JRklUWf5RkyJtYNze2G4",
@@ -30,10 +31,15 @@ const router = createBrowserRouter([
   {
     path: "/item/:id",element: <ItemPage />,
   },
+  {
+    path: "/cart",element: <CartPage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   </React.StrictMode>,
 )

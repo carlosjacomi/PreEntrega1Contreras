@@ -5,7 +5,7 @@ import {Container,Row,Col, Image} from 'react-bootstrap';
 
 import ItemCount from '../ItemCount';
 
-const ItemDetail = ({product=undefined}) => {
+const ItemDetail = ({product=ReactNode}) => {
 
 return (
     <>
@@ -37,7 +37,7 @@ return (
                         ? `Solo Queda ${product.stock} disponible`
                         :'Agotado'}
                     </small>
-                    <ItemCount stock={product.stock}/>
+                    <ItemCount product={product}/>
                 </Col>
                 <Col xs={12} className='text-center pt-4'>
                     

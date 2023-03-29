@@ -6,7 +6,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 import ItemCount from '../ItemCount';
 
-const Item = ({id='',urlImage='#', title='', details='', price=0, stock=0}) => {
+const Item = ({product=ReactNode}) => {
+    
     
     return (
     <>
@@ -15,28 +16,28 @@ const Item = ({id='',urlImage='#', title='', details='', price=0, stock=0}) => {
                     <Col>
                         
                             <Card border="light" bg={'light'} className='text-center'>
-                                <NavLink to={`/item/${id}`}>
-                                    <Card.Img variant="top" src={urlImage} alt='' />
+                                <NavLink to={`/item/${product.id}`}>
+                                    <Card.Img variant="top" src={product.image} alt='' />
                                 </NavLink>
                                 <Card.Body className='p-1'>
-                                    <NavLink to={`/item/${id}`}>
-                                        <Card.Title className='bg-light'>{title}</Card.Title>
+                                    <NavLink to={`/item/${product.id}`}>
+                                        <Card.Title className='bg-light'>{product.title}</Card.Title>
                                         <Card.Text>
-                                            {details}
+                                            {product.details}
                                         </Card.Text>
                                     </NavLink>
                                     <ListGroup className="list-group-flush">
-                                        <ListGroup.Item>{`$ ${new Intl.NumberFormat().format(price)}`}</ListGroup.Item>
-                                        <ListGroup.Item><ItemCount stock={stock}/></ListGroup.Item>
-                                        <ListGroup.Item variant={stock > 3 
-                                            ? 'success':stock > 0 
+                                        <ListGroup.Item>{`$ ${new Intl.NumberFormat().format(product.price)}`}</ListGroup.Item>
+                                        <ListGroup.Item><ItemCount product={product}/></ListGroup.Item>
+                                        <ListGroup.Item variant={product.stock > 3 
+                                            ? 'success':product.stock > 0 
                                             ? 'warning'
                                             :'danger'}
                                         >
-                                            <small>{stock > 3 
-                                                ? `Quedan ${stock} disponibles` : stock > 1 
-                                                ? `Solo quedan ${stock} disponibles`:  stock === 1 
-                                                ? `Solo Queda ${stock} disponible`
+                                            <small>{product.stock > 3 
+                                                ? `Quedan ${product.stock} disponibles` : product.stock > 1 
+                                                ? `Solo quedan ${product.stock} disponibles`:  product.stock === 1 
+                                                ? `Solo Queda ${product.stock} disponible`
                                                 :'Agotado'}
                                             </small>
                                         </ListGroup.Item>
