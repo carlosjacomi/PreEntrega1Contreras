@@ -17,10 +17,6 @@ img.gray {
     background-color:#f0b200  !important;
 }
 
-text-success{
-    color: green;
-}
-
 .spinner-grow {
     --bs-spinner-width: 20rem !important;
     --bs-spinner-height: 20rem !important;

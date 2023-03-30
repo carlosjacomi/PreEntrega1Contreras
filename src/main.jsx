@@ -1,16 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './pages/home/App'
-import './index.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
-import ItemPage from './pages/item/ItemPage';
 
 import { initializeApp } from "firebase/app";
-import CartProvider from './context/CartContext';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css'
+
 import ParamProvider from './context/ParamContext';
+import CartProvider from './context/CartContext';
+
+import App from './pages/home/App'
+import ItemPage from './pages/item/ItemPage';
 import CartPage from './pages/cart/CartPage';
-import ErrorPage from './pages/error/ErrorPage';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDNWJNSSItMm-_JRklUWf5RkyJtYNze2G4",

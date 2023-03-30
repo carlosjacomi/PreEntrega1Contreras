@@ -1,8 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import {Container,Row,Col} from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
+import {Container,Row,Col, Card, ListGroup} from 'react-bootstrap';
 
 import ItemCount from '../ItemCount';
 

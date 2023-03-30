@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react';
+
+
 import {collection, getDocs, getFirestore, query, where} from 'firebase/firestore'
 
 import {Container,Row,Col} from 'react-bootstrap';
 import './itemList.css'
 
-import ItemList from './ItemList';
-import Loader from '../Loader';
-
 import ErrorPage from "../../pages/error/ErrorPage";
 
-
+import ItemList from './ItemList';
+import Loader from '../Loader';
 
 
 const  ItemListContainer= ({categoryId='', isHome}) => {
     const [loading, setLoading]= useState(true);
-    const [errorPage, setErrorPage]= useState(false);
     const [products, setProducts]= useState([]);
     
     useEffect(()=> {

@@ -2,11 +2,10 @@ import { useContext } from "react"
 
 import { useParams } from 'react-router-dom';
 
-import NavBar from '../../components/navbar/NavBar'
-import ItemListContainer from '../../components/itemList/ItemListContainer';
 import { ParamContext } from '../../context/ParamContext';
 
-
+import NavBar from '../../components/navbar/NavBar'
+import ItemListContainer from '../../components/itemList/ItemListContainer';
 
 const App = () =>  {
   const params = useParams();

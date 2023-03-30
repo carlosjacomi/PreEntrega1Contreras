@@ -1,13 +1,12 @@
 import { useContext, useState } from 'react';
 import { NavLink , useParams} from 'react-router-dom';
 
-import {Container,Row,Col} from 'react-bootstrap';
-
-import { Button, ButtonGroup,  ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { CartContext } from '../context/CartContext';
 import { ParamContext } from '../context/ParamContext';
 
+import {Container,Row,Col} from 'react-bootstrap';
 
+import { Button, ButtonGroup,  ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 
 const ItemCount = ({product=ReactNode}) => {
 const params = useParams();

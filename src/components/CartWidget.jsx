@@ -1,9 +1,12 @@
 import { useContext } from 'react';
-import Badge from 'react-bootstrap/Badge';
-import Cart from '../assets/Cart';
+import { NavLink } from 'react-router-dom';
+
 import { CartContext } from '../context/CartContext';
 
-import { NavLink } from 'react-router-dom';
+import Badge from 'react-bootstrap/Badge';
+
+import Cart from '../assets/Cart';
+
 
 const CartWidget = () => {
     const {itemsCart} = useContext(CartContext)
