@@ -1,15 +1,19 @@
+import { useContext } from "react"
+
 import { useParams } from 'react-router-dom';
 
+import { ParamContext } from '../../context/ParamContext';
+
 import NavBar from '../../components/navbar/NavBar'
-import ItemListContainer from '../../containers/itemList/ItemListContainer';
+import ItemListContainer from '../../components/itemList/ItemListContainer';
 
 const App = () =>  {
   const params = useParams();
-  const isHome = params.id==='' || params.id===undefined? true : false;
+  const {isHomePage} = useContext(ParamContext)
   return (
     <>
       <NavBar/>
-      <ItemListContainer isHome={isHome} categoryId={params.id}/>
+      <ItemListContainer isHome={isHomePage(params.id)} categoryId={params.id}/>
     </>
   )
 }

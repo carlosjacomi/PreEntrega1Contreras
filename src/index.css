@@ -1,4 +1,21 @@
+body {
+    font-family: 'Quicksand', sans-serif !important;
+    background-color: ghostwhite !important;
+}
+
 a {text-decoration: none !important;}
+
+img.gray {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.text-gold{
+    color:#f0b200  !important;
+}
+.bg-gold{
+    background-color:#f0b200  !important;
+}
 
 .spinner-grow {
     --bs-spinner-width: 20rem !important;
