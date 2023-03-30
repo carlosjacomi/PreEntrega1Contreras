@@ -9,7 +9,7 @@ return (
             <Row>
                 <ul className='list-unstyled'>
                     <Container fluid>
-                        <Row xs={1} md={2} lg={3} className="g-4">
+                        <Row xs={1} md={2} lg={4} className="g-4">
                             {products.map((product) => (
                                     <li key={product.id}>
                                             <Item product={product}/>

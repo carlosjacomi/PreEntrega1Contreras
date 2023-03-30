@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 import Badge from 'react-bootstrap/Badge';
 import Cart from '../assets/Cart';
-import { Context } from '../context/Index';
+import { CartContext } from '../context/CartContext';
 
 import { NavLink } from 'react-router-dom';
 
 const CartWidget = () => {
-    const {itemsCart} = useContext(Context)
+    const {itemsCart} = useContext(CartContext)
 return (
     <>
         <NavLink to={'/cart'}>
-            <Cart/><Badge bg="secondary" className='ms-1'>{itemsCart.length}</Badge>
+            <Cart/><Badge className='ms-1 text-white'>{itemsCart.length}</Badge>
         </NavLink>
     </>
 );

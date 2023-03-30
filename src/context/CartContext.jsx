@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
 
 
-/** Este componente se usa como template para creación de componentes desde 0 
+/** Este componente se usa para definir los context del carro de compra
  * @component
 */
 
-export const Context = createContext();
+export const CartContext = createContext();
 
 const CartProvider = ({children}) => {
     
@@ -28,10 +28,9 @@ const CartProvider = ({children}) => {
     }
     
     return (
-        <Context.Provider value={value}>
+        <CartContext.Provider value={value}>
             {children}
-        </Context.Provider>
+        </CartContext.Provider>
     );
-    }
-    
+}    
 export default CartProvider;

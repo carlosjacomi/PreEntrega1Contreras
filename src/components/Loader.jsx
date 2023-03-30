@@ -6,7 +6,7 @@ import {Spinner} from 'react-bootstrap';
 const Loader = () => {
 return (
     <>
-        <Spinner animation="grow"  className= 'mt-5' variant="secondary" />
+        <Spinner animation="grow"  className= 'mt-5' variant="dark" />
     </>
 );
 }

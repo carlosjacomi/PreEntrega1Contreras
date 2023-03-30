@@ -6,10 +6,12 @@ import './itemDetail.css'
 
 import ItemDetail from "./ItemDetail";
 import Loader from "../Loader";
+import ErrorPage from "../../pages/error/ErrorPage";
 
 
 const  ItemDetailContainer= ({product={}}) => {
     const [loading, setLoading]= useState(true);
+    const [errorPage, setErrorPage]= useState(false);
     const [productInfo, setProductInfo]= useState({product});
 
     useEffect(() => {
@@ -23,6 +25,9 @@ const  ItemDetailContainer= ({product={}}) => {
                 if (snapshot.exists()){
                     setProductInfo({id: snapshot.id, ...snapshot.data()})
                     setLoading(false)
+                }else {
+                    setLoading(false)
+                    setErrorPage(true)
                 }
             })
             .catch((error) => console.log(error))
@@ -33,12 +38,12 @@ const  ItemDetailContainer= ({product={}}) => {
 
 return (
     <>
-        <Container>
+        <Container fluid>
             <Row>
                 <Col className="text-center">
                     {loading 
                         ?<Loader/>
-                        :<ItemDetail product={productInfo}/>
+                        :errorPage? <ErrorPage/>: <ItemDetail product={productInfo}/>
                     }
                 </Col>
             </Row>

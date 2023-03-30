@@ -1,11 +1,10 @@
 import { useContext } from "react"
-import { Context } from "../../context/Index"
+import { CartContext } from "../../context/CartContext"
 import NavBar from '../../components/navbar/NavBar'
 
 
 const CartPage = () =>  {
-    const {itemsCart} = useContext (Context)
-    console.log(itemsCart)
+    const {itemsCart} = useContext (CartContext)
     return (
         <>
             <NavBar/>

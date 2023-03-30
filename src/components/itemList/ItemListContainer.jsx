@@ -7,10 +7,14 @@ import './itemList.css'
 import ItemList from './ItemList';
 import Loader from '../Loader';
 
+import ErrorPage from "../../pages/error/ErrorPage";
 
 
-const  ItemListContainer= ({categoryId='', isHome=true}) => {
+
+
+const  ItemListContainer= ({categoryId='', isHome}) => {
     const [loading, setLoading]= useState(true);
+    const [errorPage, setErrorPage]= useState(false);
     const [products, setProducts]= useState([]);
     
     useEffect(()=> {
@@ -26,7 +30,7 @@ const  ItemListContainer= ({categoryId='', isHome=true}) => {
                     const docs = snapshot.docs;
                     setProducts(docs.map((doc) => ({id:doc.id, ...doc.data()})));
                     setLoading(false)
-                
+
             })
             .catch((error)=> console.log(error))
         }, 1000); 
@@ -34,12 +38,12 @@ const  ItemListContainer= ({categoryId='', isHome=true}) => {
 
 return (
     <>
-        <Container>
+        <Container fluid>
             <Row>
                 <Col className='text-center'>
                     {loading 
                         ?<Loader/>
-                        :<ItemList products={products}/>
+                        :products.length === 0? <ErrorPage/>:<ItemList products={products}/>
                     }
                 </Col>
             </Row>

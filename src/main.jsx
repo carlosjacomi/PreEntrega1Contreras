@@ -7,8 +7,10 @@ import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import ItemPage from './pages/item/ItemPage';
 
 import { initializeApp } from "firebase/app";
-import CartProvider from './context/Index';
+import CartProvider from './context/CartContext';
+import ParamProvider from './context/ParamContext';
 import CartPage from './pages/cart/CartPage';
+import ErrorPage from './pages/error/ErrorPage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDNWJNSSItMm-_JRklUWf5RkyJtYNze2G4",
@@ -34,12 +36,17 @@ const router = createBrowserRouter([
   {
     path: "/cart",element: <CartPage />,
   },
+  {
+    path: "*",element: <App />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CartProvider>
-      <RouterProvider router={router} />
-    </CartProvider>
+    <ParamProvider>
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
+    </ParamProvider>
   </React.StrictMode>,
 )
