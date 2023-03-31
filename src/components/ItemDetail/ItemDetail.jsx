@@ -37,11 +37,33 @@ return (
                 </Col>
 
                 <Col xs={8} className='text-center'>
-                <h1>{product.title}</h1>
-                <p>{product.details}</p>
-                <span className='fs-4'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</span>
+                <h1 className='fw-bold pb-4'>{product.details}</h1>
+                <span className='fs-4'>{product.description}</span>
+                <Col xs={12} className='d-flex pt-5 text-secondary'>
+                    <Col xs={6}>
+                        <h2 className='pt-4'>Consideraciones para Retiro en Tienda</h2>
+                        <ul className='text-start  pt-4'>
+                            <li>Una vez verificado el pago, la fecha de retiro es en aproximadamente 10 días. De igual modo será contactado telefónicamente por nuestros asesores para notificar que el pedido está disponible para retiro. Si pasados los 10 días no es contactado por favor comuníquese con nosotros.</li>
+                        </ul>
+                    </Col>
+                    <Col xs={6}>
+                        <h2 className='pt-4'>Consideraciones para Envío a Domicilio</h2>
+                        <ul className='text-start  pt-4'>
+                            <li> El despacho para la Región Metropolitana es sin costo. El plazo de entrega no excederá los 10 días hábiles, siendo el plazo habitual 72 horas para entregas dentro de la Región Metropolitana, de lunes a viernes.</li>
+                        </ul>
+                    </Col>
                 </Col>
-                
+                <Col xs={12} className='text-secondary'>
+                    <h2 className='pt-4'>Politica de Devolución</h2>
+                        <p className=''>Todos nuestros clientes pueden realizar la devolución de su pedido en un plazo inferior a 10 días a partir de la entrega del mismo. El cliente no tendrá derecho a devolver productos que hayan sido modificados.</p>
+                        <ul className='text-start '> Ejemplo
+                            <li>Anillos con modificación de talla por petición del cliente.</li>
+                            <li>El cliente tiene un periodo de garantía (cambio o reparación) de garantía legal el cual corresponde a 90 días.</li>
+                            <li>Este proceso comprende 3 fases: Reparación, Cambio o Devolución del dinero</li>
+                        </ul>
+                </Col>
+            
+                </Col>
             </Row>
         </Container>
     </>

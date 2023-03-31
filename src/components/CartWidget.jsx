@@ -10,10 +10,13 @@ import Cart from '../assets/Cart';
 
 const CartWidget = () => {
     const {itemsCart} = useContext(CartContext)
+    const totalItems = itemsCart.reduce((accumulator, currentItem) => {
+        return accumulator + currentItem.product.quantity;
+    }, 0);
 return (
     <>
         <NavLink to={'/cart'}>
-            <Cart/><Badge className='ms-1 text-white'>{itemsCart.length}</Badge>
+            <Cart/><Badge className='ms-1 text-white'>{totalItems}</Badge>
         </NavLink>
     </>
 );
