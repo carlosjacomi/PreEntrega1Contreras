@@ -10,6 +10,7 @@ export const CartContext = createContext();
 const CartProvider = ({children}) => {
     
     const [itemsCart, setItemsCart] = useState([]);
+    const [order, setOrder] = useState({});
 
     
     const onAdd = (product, value) => {
@@ -27,7 +28,9 @@ const CartProvider = ({children}) => {
 
     const value = {
         itemsCart,
+        order,
         onAdd,
+        setOrder,
         onRemove,
         onClear
     }
