@@ -14,6 +14,7 @@ import CartProvider from './context/CartContext';
 import App from './pages/home/App'
 import ItemPage from './pages/item/ItemPage';
 import CartPage from './pages/cart/CartPage';
+import Checkout from './pages/checkout/Checkout';
 
 
 
@@ -35,6 +36,9 @@ const router = createBrowserRouter([
   },
   {
     path: '*',element: <App />,
+  },
+  {
+    path: '/checkout',element: <Checkout />,
   },
 ]);
 

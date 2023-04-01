@@ -8,10 +8,11 @@ import CartWidget from '../CartWidget';
 
 
 const NavBar = () => {
+    const scrollToZero = () => {window.scrollTo(0, 0)}
 return (
-    <Navbar id='navbar' bg="dark">
+    <Navbar id='navbar' bg="dark" className='sticky-top'>
         <Container fluid>
-            <Navbar.Brand className='fs-4 text-warning fw-bold'><NavLink to={'/'}>Aurus Joyeria</NavLink></Navbar.Brand>
+            <Navbar.Brand className='fs-4 text-warning fw-bold' onClick={scrollToZero}><NavLink to={'/'}>Aurus Joyeria</NavLink></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end fw-bold fs-5">
             <Nav>

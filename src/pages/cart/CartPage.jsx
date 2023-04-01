@@ -1,10 +1,12 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 
-import {Container,Row,Col, Image, ButtonGroup,  ToggleButton, ToggleButtonGroup} from 'react-bootstrap';
+import {Container,Row,Col, Image, ButtonGroup,  ToggleButton, ToggleButtonGroup, Table} from 'react-bootstrap';
+import './cartpage.css'
 
 import { CartContext } from '../../context/CartContext'
 import NavBar from '../../components/navbar/NavBar'
 import { NavLink } from 'react-router-dom';
+
 
 
 const CartPage = () =>  {
@@ -19,7 +21,7 @@ const CartPage = () =>  {
     return (
         <>
             <NavBar/>
-            <Container>
+            <Container id='cartpage'>
                 <Row>
                     <Col xs={12}> 
                         <h1 className='text-center py-3 fw-bold'>Carrito de Compras</h1>
@@ -32,22 +34,29 @@ const CartPage = () =>  {
                             <h1 className='fw-light'>¡No hay nada aqui!, debes agregar productos a tu carrito para comprar</h1>
                         </Col>
                     :
-                        itemsCart.map(({product}) => (
-                            <Col xs={12} key={product.id} className='d-flex  align-items-center text-white text-center pt-2 pb-2 mt-1 mb-1 border border-light round rounded-3 bg-dark'> 
-                                <Col xs={1}> 
-                                    <Image src={product.image} alt={product.details} className='rounded rounded-4 w-100'></Image>
-                                </Col>
-                                <Col xs={5}> 
-                                    <h3 className='text-center py-3'>{product.title}</h3>
-                                </Col>
-                                <Col xs={1}> 
-                                    <h3 className='text-center py-3'>{product.quantity}</h3>
-                                </Col>
-                                <Col xs={2}> 
-                                    <h3 className='text-center py-3'>{`$ ${new Intl.NumberFormat().format(product.price*product.quantity)}`}</h3>
-                                </Col>
-                                <Col xs={3}> 
-                                    <ButtonGroup className={'w-75'}>
+                    <Table striped bordered hover variant="dark">
+                        <thead className='fs-4 text-warning'>
+                            <tr>
+                            <th>ID</th>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Total</th>
+                            <th>Acciones</th>
+                            </tr>
+                        </thead>
+                    <tbody className=''>
+                    {itemsCart.map(({product}) => (
+                            <tr key={product.id} className='align-middle'>
+                                <td>{product.id}</td>
+                                <td><Image src={product.image} alt={product.details} className='w-5'></Image></td>
+                                <td>{product.details}</td>
+                                <td className='text-center'>{product.quantity}</td>
+                                <td className='text-center'>{`$ ${new Intl.NumberFormat().format(product.price)}`}</td>
+                                <td className='text-center'>{`$ ${new Intl.NumberFormat().format(product.price*product.quantity)}`}</td>
+                                <td className='text-center'>
+                                    <ButtonGroup className={'w-100'}>
                                         <ToggleButtonGroup type='radio' name='my-group' className='mb-2 w-100'>
                                         <NavLink to={`/item/${product.id}`} className={'w-100'}>
                                             <ToggleButton variant='warning' className={'w-100'}><h5 className='fw-bold'>Ver</h5></ToggleButton>
@@ -57,10 +66,13 @@ const CartPage = () =>  {
                                         </NavLink>
                                         </ToggleButtonGroup>
                                     </ButtonGroup>
-                                </Col>
-                            </Col>
+                                </td>
+                            </tr>
                         ))
                     }
+                    </tbody>
+                    </Table>
+}
                 </Row>
             </Container>
             {!isEmpty &&
@@ -68,18 +80,18 @@ const CartPage = () =>  {
                 <Row className='g-0'>
                     <Col xs={12} className='d-flex  align-items-center text-center mt-1 border border-light round rounded-3 bg-warning'>
                         <Col xs={4}>
-                                <h4 className='text-center py-3 fw-bold'>Total</h4>
+                                <h5 className='text-center py-3 fw-bold'>Total</h5>
                         </Col>
                         <Col xs={2}>
-                                <h4 className='text-center py-3 fw-bold'>{`${totalItems} ${totalItems >1 ? 'Productos' : 'Producto'}`}</h4>
+                                <h5 className='text-center py-3 fw-bold'>{`${totalItems} ${totalItems >1 ? 'Productos' : 'Producto'}`}</h5>
                         </Col>
                         <Col xs={3}>
-                                <h4 className='text-center py-3 fw-bold'>{`$ ${new Intl.NumberFormat().format(totalPrice)}`}</h4>
+                                <h5 className='text-center py-3 fw-bold'>{`$ ${new Intl.NumberFormat().format(totalPrice)}`}</h5>
                         </Col>
                         <Col xs={3}>
                         <ButtonGroup className={'w-75'}>
                                 <ToggleButtonGroup type='radio' name='my-group' className='mb-2 w-100'>
-                                <NavLink to='#' className={'w-100'}>
+                                <NavLink to='/checkout' className={'w-100'}>
                                     <ToggleButton variant='success' className={'w-100'}><h5 className='fw-bold'>Check Out</h5></ToggleButton>
                                 </NavLink>
                                 <NavLink to='#' className={'w-100'}>
