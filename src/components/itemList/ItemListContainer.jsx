@@ -32,7 +32,7 @@ const  ItemListContainer= ({categoryId='', isHome}) => {
 
             })
             .catch((error)=> console.log(error))
-        }, 1000); 
+        }, 500); 
     },[categoryId]);
 
 return (

@@ -21,10 +21,15 @@ const CartProvider = ({children}) => {
         setItemsCart((old) => old.filter(item => item.product.id !== id))
     }
 
+    const onClear = () => {
+        setItemsCart([])
+    }
+
     const value = {
         itemsCart,
         onAdd,
-        onRemove
+        onRemove,
+        onClear
     }
     
     return (
