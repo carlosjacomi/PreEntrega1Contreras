@@ -71,10 +71,6 @@ const Checkout = () => {
         const itemRef= doc(db, 'items', productId)
         updateDoc(itemRef, {stock: finalStock})
     }
-
-    
-
-
     
     const addOrder = (obj) => {
         addDoc(collectionRef, obj)
