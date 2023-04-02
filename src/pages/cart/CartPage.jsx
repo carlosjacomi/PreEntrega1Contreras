@@ -34,61 +34,105 @@ const CartPage = () =>  {
                             <h1 className='fw-light'>¡No hay nada aqui!, debes agregar productos a tu carrito para comprar</h1>
                         </Col>
                     :
-                    <Table striped bordered hover variant="dark">
-                        <thead className='fs-4 text-warning'>
-                            <tr>
-                            <th>ID</th>
-                            <th>Imagen</th>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Precio Unitario</th>
-                            <th>Total</th>
-                            <th>Acciones</th>
-                            </tr>
-                        </thead>
-                    <tbody className=''>
-                    {itemsCart.map(({product}) => (
-                            <tr key={product.id} className='align-middle'>
-                                <td>{product.id}</td>
-                                <td><Image src={product.image} alt={product.details} className='w-5'></Image></td>
-                                <td>{product.details}</td>
-                                <td className='text-center'>{product.quantity}</td>
-                                <td className='text-center'>{`$ ${new Intl.NumberFormat().format(product.price)}`}</td>
-                                <td className='text-center'>{`$ ${new Intl.NumberFormat().format(product.price*product.quantity)}`}</td>
-                                <td className='text-center'>
-                                    <ButtonGroup className={'w-100'}>
-                                        <ToggleButtonGroup type='radio' name='my-group' className='mb-2 w-100'>
-                                        <NavLink to={`/item/${product.id}`} className={'w-100'}>
-                                            <ToggleButton variant='warning' className={'w-100'}><h5 className='fw-bold'>Ver</h5></ToggleButton>
+                    <>
+                        <Table striped bordered hover variant="dark" className='d-none d-lg-block'>
+                            <thead className='fs-4 text-warning'>
+                                <tr>
+                                <th>ID</th>
+                                <th>Imagen</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio Unitario</th>
+                                <th>Total</th>
+                                <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody className=''>
+                            {itemsCart.map(({product}) => (
+                                    <tr key={product.id} className='align-middle'>
+                                        <td>{product.id}</td>
+                                        <td><Image src={product.image} alt={product.details} className='w-5'></Image></td>
+                                        <td>{product.details}</td>
+                                        <td className='text-center'>{product.quantity}</td>
+                                        <td className='text-center'>{`$ ${new Intl.NumberFormat().format(product.price)}`}</td>
+                                        <td className='text-center'>{`$ ${new Intl.NumberFormat().format(product.price*product.quantity)}`}</td>
+                                        <td className='text-center'>
+                                            <ButtonGroup className={'w-100'}>
+                                                <ToggleButtonGroup type='radio' name='my-group' className='mb-2 w-100'>
+                                                <NavLink to={`/item/${product.id}`} className={'w-100'}>
+                                                    <ToggleButton variant='warning' className={'w-100'}><h5 className='fw-bold'>Ver</h5></ToggleButton>
+                                                </NavLink>
+                                                <NavLink to='#' className={'w-100'}>
+                                                    <ToggleButton variant='danger' className={'w-100 mx-1'} onClick={() => {onRemove(product.id)}}><h5 className='fw-bold'>Eliminar</h5></ToggleButton>
+                                                </NavLink>
+                                                </ToggleButtonGroup>
+                                            </ButtonGroup>
+                                        </td>
+                                    </tr>
+                                ))
+                            }
+                            </tbody>
+                        </Table>
+                            
+                        
+                        {itemsCart.map(({product}) => (
+                                <Table striped bordered hover variant="dark" className='d-lg-none text-center'>
+                                <thead className='fs-4 text-warning'>
+                                    <tr>
+                                        <th colSpan={2}>{product.title}</th>
+                                    </tr>
+                                </thead>
+                                <tbody className='bg-dark'>
+                                    <td className='text-center fw-bold'>ID</td>
+                                    <td className='text-center'>{product.id}</td>
+                                </tbody>
+                                <tbody className='bg-dark'>
+                                    <td className='text-center fw-bold'>Imagen</td>
+                                    <td className='text-center'><Image src={product.image} alt={product.details} className='w-5'></Image></td>
+                                </tbody>
+                                <tbody className='bg-dark'>
+                                    <td className='text-center fw-bold'>Cantidad</td>
+                                    <td className='text-center'>{product.quantity}</td>
+                                </tbody>
+                                <tbody className='bg-dark'>
+                                    <td className='text-center fw-bold'>Total</td>
+                                    <td className='text-center'>{`$ ${new Intl.NumberFormat().format(product.price*product.quantity)}`}</td>
+                                </tbody>
+                                <tbody className='bg-dark'>
+                                    <td className='text-center'>
+                                        <NavLink to='#' className={'w-75'}>
+                                            <ToggleButton variant='danger' className={'w-75 mx-1'} onClick={() => {onRemove(product.id)}}><h5 className='fw-bold'>Eliminar</h5></ToggleButton>
                                         </NavLink>
-                                        <NavLink to='#' className={'w-100'}>
-                                            <ToggleButton variant='danger' className={'w-100 mx-1'} onClick={() => {onRemove(product.id)}}><h5 className='fw-bold'>Eliminar</h5></ToggleButton>
+                                    </td>
+                                    <td className='text-center'>
+                                        <NavLink to={`/item/${product.id}`} className={'w-75'}>
+                                            <ToggleButton variant='warning' className={'w-75'}><h5 className='fw-bold'>Ver</h5></ToggleButton>
                                         </NavLink>
-                                        </ToggleButtonGroup>
-                                    </ButtonGroup>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tbody>
+                                </Table>
                         ))
-                    }
-                    </tbody>
-                    </Table>
+                        }
+                    </>
+                    
+                    
 }
                 </Row>
             </Container>
             {!isEmpty &&
             <Container fluid className='p-0 fixed-bottom'>
                 <Row className='g-0'>
-                    <Col xs={12} className='d-flex  align-items-center text-center mt-1 border border-light round rounded-3 bg-warning'>
-                        <Col xs={4}>
+                    <Col xs={12} className='d-lg-flex  align-items-center text-center mt-1 border border-light round rounded-3 bg-warning'>
+                        <Col xs={6} lg={4} className='d-none d-lg-block' >
                                 <h5 className='text-center py-3 fw-bold'>Total</h5>
                         </Col>
-                        <Col xs={2}>
+                        <Col xs={6} lg={2} className='d-none d-lg-block'>
                                 <h5 className='text-center py-3 fw-bold'>{`${totalItems} ${totalItems >1 ? 'Productos' : 'Producto'}`}</h5>
                         </Col>
-                        <Col xs={3}>
+                        <Col xs={12} lg={3}>
                                 <h5 className='text-center py-3 fw-bold'>{`$ ${new Intl.NumberFormat().format(totalPrice)}`}</h5>
                         </Col>
-                        <Col xs={3}>
+                        <Col xs={12} lg={3}>
                         <ButtonGroup className={'w-75'}>
                                 <ToggleButtonGroup type='radio' name='my-group' className='mb-2 w-100'>
                                 <NavLink to='/checkout' className={'w-100'}>

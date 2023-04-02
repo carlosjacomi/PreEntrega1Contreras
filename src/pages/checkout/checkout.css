@@ -1,1 +1,9 @@
 #checkout img{width: 100px;}
+@media (min-width: 992px) {
+.d-lg-block {
+    display: table !important;
+}
+}
+@media (max-width: 992px) {
+#checkout {margin-bottom: 120px;}
+}

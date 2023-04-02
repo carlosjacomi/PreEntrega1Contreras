@@ -115,17 +115,17 @@ const Checkout = () => {
     return (
         <>
             {!printOrder && <NavBar/>}
-            <Container fluid className='p-0' id='checkout'>
+            <Container fluid  className='p-0' id='checkout'>
                 <Row className='g-0'>
                     {isEmpty
                             ?
-                                <Col xs='12' className='text-center'>
+                                <Col xs={12} className='text-center'>
                                     <h1 className='py-3 fw-bold'>CheckOut</h1>
                                     <h1 className='fw-light'>¡No hay nada aqui!, debes agregar productos a tu carrito para comprar</h1>
                                 </Col>
                             :
                                 <>
-                                <Col xs={!printOrder ? 9 : 12} className='p-5'>
+                                <Col xs={12} lg={!printOrder ? 9 : 12} className='p-5'>
                                     
                                     <Col xs={12} className='text-center p-0'> 
                                         <h1 className='py-3 fw-bold'>{!printOrder  ? 'CheckOut' : `Orden`}</h1>
@@ -133,7 +133,7 @@ const Checkout = () => {
                                     </Col>
                                     
                                     <Col xs={12}>
-                                        <Table striped={!printOrder ? true : false} bordered hover variant='dark' className='order'>
+                                        <Table striped={!printOrder ? true : false} bordered hover variant='dark' className='d-none d-lg-block mx-auto'>
                                             <thead className='fs-4 text-warning'>
                                                 <tr>
                                                 <th>ID</th>
@@ -162,10 +162,44 @@ const Checkout = () => {
                                                 </tr>
                                         </tbody>
                                         </Table>
+
+                                        {itemsCart.map(({product}) => (
+                                            <Table striped={!printOrder ? true : false} bordered hover variant='dark'  className='d-lg-none text-center'>
+                                                <thead className='fs-4 text-warning'>
+                                                    <tr>
+                                                        <th colSpan={2}>{product.title}</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody className='bg-dark'>
+                                                    <td className='text-center fw-bold'>ID</td>
+                                                    <td className='text-center'>{product.id}</td>
+                                                </tbody>
+                                                <tbody className='bg-dark'>
+                                                    <td className='text-center fw-bold'>Imagen</td>
+                                                    <td className='text-center'><Image src={product.image} alt={product.details} className='w-5'></Image></td>
+                                                </tbody>
+                                                <tbody className='bg-dark'>
+                                                    <td className='text-center fw-bold'>Cantidad</td>
+                                                    <td className='text-center'>{product.quantity}</td>
+                                                </tbody>
+                                                <tbody className='bg-dark'>
+                                                    <td className='text-center fw-bold'>Total</td>
+                                                    <td className='text-center'>{`$ ${new Intl.NumberFormat().format(product.price*product.quantity)}`}</td>
+                                                </tbody>
+                                            </Table>
+                                        ))
+                                        }
+                                        
+                                        <Table striped={!printOrder ? true : false} bordered hover variant='dark'  className='d-lg-none text-center'>
+                                                <tbody className='bg-dark'>
+                                                    <td className='text-center fw-bold'>Total Orden</td>
+                                                    <td className='text-center'>{`$ ${new Intl.NumberFormat().format(totalPrice)}`}</td>
+                                                </tbody>
+                                        </Table>
                                     </Col>
                                     {printOrder &&
                                     <Col xs={12}>
-                                        <Table bordered hover variant='dark' className='order'>
+                                        <Table bordered hover variant='dark' className='d-none d-lg-block'>
                                             <thead className='fs-4 text-warning'>
                                                 <tr>
                                                 <th>Nombre</th>
@@ -183,13 +217,36 @@ const Checkout = () => {
                                                 </tr>
                                         </tbody>
                                         </Table>
+                                        <Table striped={!printOrder ? true : false} bordered hover variant='dark'  className='d-lg-none text-center'>
+                                                <thead className='fs-4 text-warning'>
+                                                    <tr>
+                                                    <th colSpan={2}>Comprador</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody className='bg-dark'>
+                                                    <td className='text-center fw-bold'>Nombre:</td>
+                                                    <td className='text-center'>{nameRef.current?.value}</td>
+                                                </tbody>
+                                                <tbody className='bg-dark'>
+                                                    <td className='text-center fw-bold'>Apellido:</td>
+                                                    <td className='text-center'>{lastNameRef.current?.value}</td>
+                                                </tbody>
+                                                <tbody className='bg-dark'>
+                                                    <td className='text-center fw-bold'>Telefono:</td>
+                                                    <td className='text-center'>{phoneRef.current?.value}</td>
+                                                </tbody>
+                                                <tbody className='bg-dark'>
+                                                    <td className='text-center fw-bold'>Correo:</td>
+                                                    <td className='text-center'>{emailRef.current?.value}</td>
+                                                </tbody>
+                                        </Table>
                                         <span className='text-center fixed-bottom pb-5'>{datetimeString}</span>
                                     </Col>
                                     }
                                 </Col>
 
 
-                                <Col xs={3} className={`text-center bg-dark ${!printOrder ? 'min-vh-100' : 'fixed-bottom w-100 pb-2'} d-flex align-items-center hide-print `}>
+                                <Col xs={12} lg={3} className={`text-center bg-dark ${!printOrder ? 'min-vh-100' : 'fixed-bottom w-100 pb-2'} d-flex align-items-center hide-print `}>
                                     {!printOrder
                                         ?
                                             <Form className='bg-dark p-5 '>

@@ -19,7 +19,7 @@ return (
                     </small>
                 </Col>
 
-                <Col  xs={4} className='bg-white text-center rounded rounded-5 pb-3'>
+                <Col  xs={12} lg={4} className='bg-white text-center rounded rounded-5 pb-3'>
                 <Image
                     className={`${product.stock === 0 && 'gray' }`}
                     src={product.image}
@@ -36,17 +36,17 @@ return (
                 <ItemCount product={product}/>
                 </Col>
 
-                <Col xs={8} className='text-center'>
+                <Col xs={12} lg={8} className='text-center'>
                 <h1 className='fw-bold pb-4'>{product.details}</h1>
                 <span className='fs-4'>{product.description}</span>
-                <Col xs={12} className='d-flex pt-5 text-secondary'>
-                    <Col xs={6}>
+                <Col xs={12} className='d-lg-flex pt-5 text-secondary'>
+                    <Col xs={12} lg={6}>
                         <h2 className='pt-4'>Consideraciones para Retiro en Tienda</h2>
                         <ul className='text-start  pt-4'>
                             <li>Una vez verificado el pago, la fecha de retiro es en aproximadamente 10 días. De igual modo será contactado telefónicamente por nuestros asesores para notificar que el pedido está disponible para retiro. Si pasados los 10 días no es contactado por favor comuníquese con nosotros.</li>
                         </ul>
                     </Col>
-                    <Col xs={6}>
+                    <Col xs={12} lg={6}>
                         <h2 className='pt-4'>Consideraciones para Envío a Domicilio</h2>
                         <ul className='text-start  pt-4'>
                             <li> El despacho para la Región Metropolitana es sin costo. El plazo de entrega no excederá los 10 días hábiles, siendo el plazo habitual 72 horas para entregas dentro de la Región Metropolitana, de lunes a viernes.</li>
